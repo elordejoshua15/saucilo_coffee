@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Brewtney Café — Slow Brewed, Fast Delivered
+    </title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         MAIN CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="CSS/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="nav">
+
+    <div class="nav-inner">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <svg
+                class="mark"
+                viewBox="0 0 32 32"
+                fill="none"
+            >
+
+                <path
+                    d="M6 12h17v8a8 8 0 0 1-8 8h-1a8 8 0 0 1-8-8v-8Z"
+                    stroke="#E8873A"
+                    stroke-width="2"
+                />
+
+                <path
+                    d="M23 14h2a3 3 0 0 1 0 6h-2"
+                    stroke="#E8873A"
+                    stroke-width="2"
+                />
+
+                <path
+                    d="M11 6c-1 1.5-1 2.5 0 4M16 6c-1 1.5-1 2.5 0 4"
+                    stroke="#E8873A"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+
+            </svg>
+
+            Brewtney Café
+
+        </a>
+
+
+        <!-- NAVIGATION LINKS -->
+
+        <div class="nav-links">
+
+            <a href="menu.html">
+                Menu
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="delivery.html">
+                Delivery
+            </a>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="nav-right">
+
+
+            <!-- =================================================
+                 USER ACCOUNT
+            ================================================== -->
+
+            <div
+                class="user-account"
+                id="userAccount"
+            >
+
+                <button
+                    class="user-account-btn"
+                    id="userAccountButton"
+                    onclick="toggleUserMenu()"
+                    type="button"
+                >
+
+                    <span class="user-icon">
+                        👤
+                    </span>
+
+                    <span id="userNameDisplay"></span>
+
+                    <span class="user-arrow">
+                        ▼
+                    </span>
+
+                </button>
+
+
+                <!-- USER DROPDOWN -->
+
+                <div
+                    class="user-dropdown"
+                    id="userDropdown"
+                >
+
+                    <button
+                        type="button"
+                        onclick="goToAccount()"
+                    >
+                        👤 Account
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="goToProfile()"
+                    >
+                        📝 Profile
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="goToSettings()"
+                    >
+                        ⚙️ Settings
+                    </button>
+
+
+                    <div class="dropdown-divider"></div>
+
+
+                    <button
+                        type="button"
+                        class="logout-btn"
+                        onclick="logoutUser()"
+                    >
+                        🚪 Logout
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 NAVIGATION CART
+            ================================================== -->
+
+            <button
+                class="cart-btn"
+                id="navCartButton"
+                onclick="handleNavigationCartClick(event)"
+                type="button"
+            >
+
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                >
+
+                    <path
+                        d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6"
+                        stroke="#231710"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+
+                    <circle
+                        cx="9"
+                        cy="21"
+                        r="1.4"
+                        fill="#231710"
+                    />
+
+                    <circle
+                        cx="17"
+                        cy="21"
+                        r="1.4"
+                        fill="#231710"
+                    />
+
+                </svg>
+
+
+                Cart
+
+
+                <span
+                    class="cart-badge"
+                    id="navCartCount"
+                >
+                    0
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header class="hero">
+
+    <div class="hero-grain"></div>
+
+
+    <div class="hero-inner">
+
+
+        <!-- HERO TEXT -->
+
+        <div>
+
+            <div class="eyebrow">
+                Espresso Bar &amp; Roastery · Catbalogan City
+            </div>
+
+
+            <h1>
+
+                Slow<br>
+
+                brewed,<br>
+
+                <span>
+                    fast
+                </span>
+
+                delivered.
+
+            </h1>
+
+
+            <p class="sub">
+
+                Small-batch beans, roasted weekly, poured the way
+                a proper cup should be. Order online, pay cash on
+                delivery — no app, no hassle.
+
+            </p>
+
+
+            <div class="hero-cta">
+
+
+                <a
+                    href="menu.html"
+                    class="btn-primary"
+                >
+
+                    Browse Menu
+
+
+                    <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
+
+                        <path
+                            d="M5 12h14M13 6l6 6-6 6"
+                            stroke="#231710"
+                            stroke-width="2.4"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                    </svg>
+
+                </a>
+
+
+                <a
+                    href="delivery.html"
+                    class="btn-ghost"
+                >
+                    How Delivery Works
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             BREWING TICKET
+        ================================================== -->
+
+        <div class="ticket">
+
+            <div class="t-title">
+                Now Brewing — #032
+            </div>
+
+
+            <div class="t-row">
+
+                <span>
+                    1x Brewtney Sig. Latte
+                </span>
+
+                <span>
+                    ₱135
+                </span>
+
+            </div>
+
+
+            <div class="t-row">
+
+                <span>
+                    1x Ube Cheese Pandesal
+                </span>
+
+                <span>
+                    ₱65
+                </span>
+
+            </div>
+
+
+            <div class="t-row">
+
+                <span>
+                    Delivery Fee
+                </span>
+
+                <span>
+                    ₱39
+                </span>
+
+            </div>
+
+
+            <div class="t-total">
+
+                <span>
+                    Total (COD)
+                </span>
+
+                <span>
+                    ₱239.00
+                </span>
+
+            </div>
+
+
+            <div class="t-stamp">
+
+                ✓ Paid on delivery
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     STRIP
+===================================================== -->
+
+<section class="strip">
+
+    <div class="strip-grid">
+
+
+        <!-- ORDER -->
+
+        <div class="strip-item">
+
+            <div class="num">
+                01 — Order
+            </div>
+
+
+            <h3>
+                Add to cart
+            </h3>
+
+
+            <p>
+
+                Tap items into your cart like you would on Shopee —
+                quantities update live.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- CONFIRM -->
+
+        <div class="strip-item">
+
+            <div class="num">
+                02 — Confirm
+            </div>
+
+
+            <h3>
+                Cash on delivery
+            </h3>
+
+
+            <p>
+
+                Fill in your name, address, and contact number.
+                Pay in cash when your order arrives at the door.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- SIP -->
+
+        <div class="strip-item">
+
+            <div class="num">
+                03 — Sip
+            </div>
+
+
+            <h3>
+                30–45 min delivery
+            </h3>
+
+
+            <p>
+
+                Freshly pulled and packed to travel.
+                Riders cover Catbalogan City and nearby barangays.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-inner">
+
+
+        <a
+            href="index.html"
+            class="logo"
+            style="font-family:'Archivo Black',sans-serif;"
+        >
+            Brewtney Café
+        </a>
+
+
+        <div class="fine">
+
+            Catbalogan City, Samar · Open daily 7AM–9PM ·
+            COD delivery only
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     FLOATING CART
+===================================================== -->
+
+<button
+    class="floating-cart"
+    id="floatingCart"
+    type="button"
+    onclick="handleFloatingCartClick(event)"
+>
+
+    <span
+        class="fc-count"
+        id="fcCount"
+    >
+        0
+    </span>
+
+
+    <span>
+        View Cart
+    </span>
+
+
+    <span
+        class="fc-total mono"
+        id="fcTotal"
+    >
+        ₱0.00
+    </span>
+
+</button>
+
+
+
+<!-- =====================================================
+     CART OVERLAY
+===================================================== -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeDrawer()"
+></div>
+
+
+
+<!-- =====================================================
+     CART DRAWER
+===================================================== -->
+
+<aside
+    class="drawer"
+    id="drawer"
+    aria-label="Shopping cart"
+>
+
+
+    <!-- DRAWER HEADER -->
+
+    <div class="drawer-head">
+
+        <div>
+
+            <h3>
+                Your Order
+            </h3>
+
+
+            <span
+                class="step-label"
+                id="stepLabel"
+            >
+                Step 1 of 2 — Review Order
+            </span>
+
+        </div>
+
+
+        <button
+            class="close-x"
+            onclick="closeDrawer()"
+            aria-label="Close cart"
+            type="button"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+
+    <!-- CART ITEMS -->
+
+    <div
+        class="drawer-body"
+        id="drawerBody"
+    ></div>
+
+
+
+    <!-- CART SUMMARY -->
+
+    <div
+        class="drawer-summary"
+        id="drawerSummary"
+        style="display:none;"
+    ></div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     CONFIRM MODAL
+===================================================== -->
+
+<div
+    class="modal-overlay"
+    id="modalOverlay"
+>
+
+
+    <div class="confirm-ticket">
+
+
+        <div class="confirm-check">
+
+            <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+            >
+
+                <path
+                    d="M5 13l4 4L19 7"
+                    stroke="#FBF5E9"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+
+            </svg>
+
+        </div>
+
+
+        <h3>
+            Order Placed
+        </h3>
+
+
+        <div
+            class="order-no"
+            id="orderNo"
+        >
+            ORDER #BC-0000
+        </div>
+
+
+        <div id="confirmLines"></div>
+
+
+        <div class="confirm-row">
+
+            <span>
+                Payment Method
+            </span>
+
+            <span id="confirmPayment">
+                Cash on Delivery
+            </span>
+
+        </div>
+
+
+        <div class="confirm-row">
+
+            <span>
+                Delivery Fee
+            </span>
+
+            <span id="confirmDelivery">
+                ₱39
+            </span>
+
+        </div>
+
+
+        <div class="confirm-total">
+
+            <span>
+                Total Due
+            </span>
+
+            <span id="confirmTotal">
+                ₱0
+            </span>
+
+        </div>
+
+
+        <div
+            class="confirm-note"
+            id="confirmNote"
+        >
+
+            Please prepare exact cash if possible.
+            Your rider will call before arrival —
+            estimated 30–45 minutes.
+
+        </div>
+
+
+        <button
+            class="confirm-close"
+            onclick="closeModal()"
+            type="button"
+        >
+            Back to Menu
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     LOGIN REQUIRED POPUP
+===================================================== -->
+
+<div
+    class="login-prompt-overlay"
+    id="loginPrompt"
+>
+
+
+    <div
+        class="login-prompt"
+        onclick="event.stopPropagation()"
+    >
+
+
+        <!-- CLOSE -->
+
+        <button
+            class="login-prompt-close"
+            onclick="closeLoginPrompt()"
+            type="button"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+
+        <!-- ICON -->
+
+        <div class="login-prompt-icon">
+            🛒
+        </div>
+
+
+
+        <!-- TITLE -->
+
+        <h3>
+            Login Required
+        </h3>
+
+
+
+        <!-- MESSAGE -->
+
+        <p>
+
+            Please log in or create an account to view your
+            cart and proceed with your order.
+
+        </p>
+
+
+
+        <!-- BUTTONS -->
+
+        <div class="login-prompt-actions">
+
+
+            <button
+                class="login-cancel"
+                onclick="closeLoginPrompt()"
+                type="button"
+            >
+                Cancel
+            </button>
+
+
+            <button
+                class="login-go"
+                onclick="goToLogin()"
+                type="button"
+            >
+                Log in
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="app.js"></script>
+
+
+
+<!-- =====================================================
+     FLOATING CART SAFETY SCRIPT
+     
+     This directly handles the floating cart.
+     It prevents the drawer from opening when logged out.
+===================================================== -->
+
+<script>
+
+function handleFloatingCartClick(event) {
+
+    if (event) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+    }
+
+
+    const savedUser =
+        localStorage.getItem("brewtney_user");
+
+
+    /*
+     * USER IS NOT LOGGED IN
+     */
+
+    if (
+        !savedUser ||
+        savedUser === "null" ||
+        savedUser === "undefined"
+    ) {
+
+        const drawer =
+            document.getElementById("drawer");
+
+        if (drawer) {
+
+            drawer.classList.remove("open");
+
+        }
+
+
+        const popup =
+            document.getElementById("loginPrompt");
+
+        if (popup) {
+
+            popup.classList.add("show");
+
+        }
+
+        return;
+
+    }
+
+
+    /*
+     * USER IS LOGGED IN
+     */
+
+    if (
+        typeof openDrawer === "function"
+    ) {
+
+        openDrawer();
+
+    }
+
+}
+
+
+
+function handleNavigationCartClick(event) {
+
+    if (event) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+    }
+
+
+    const savedUser =
+        localStorage.getItem("brewtney_user");
+
+
+    /*
+     * NOT LOGGED IN
+     */
+
+    if (
+        !savedUser ||
+        savedUser === "null" ||
+        savedUser === "undefined"
+    ) {
+
+        const drawer =
+            document.getElementById("drawer");
+
+        if (drawer) {
+
+            drawer.classList.remove("open");
+
+        }
+
+
+        const popup =
+            document.getElementById("loginPrompt");
+
+        if (popup) {
+
+            popup.classList.add("show");
+
+        }
+
+        return;
+
+    }
+
+
+    /*
+     * LOGGED IN
+     */
+
+    if (
+        typeof openDrawer === "function"
+    ) {
+
+        openDrawer();
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

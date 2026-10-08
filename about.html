@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Brewtney Café</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <svg class="mark" viewBox="0 0 32 32" fill="none"><path d="M6 12h17v8a8 8 0 0 1-8 8h-1a8 8 0 0 1-8-8v-8Z" stroke="#E8873A" stroke-width="2"/><path d="M23 14h2a3 3 0 0 1 0 6h-2" stroke="#E8873A" stroke-width="2"/><path d="M11 6c-1 1.5-1 2.5 0 4M16 6c-1 1.5-1 2.5 0 4" stroke="#E8873A" stroke-width="2" stroke-linecap="round"/></svg>
+      Brewtney Café
+    </a>
+    <div class="nav-links">
+      <a href="menu.html">Menu</a>
+      <a href="about.html" class="current">About</a>
+      <a href="delivery.html">Delivery</a>
+    </div>
+    <div class="nav-right">
+      <button class="cart-btn" onclick="openDrawer()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6" stroke="#231710" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="21" r="1.4" fill="#231710"/><circle cx="17" cy="21" r="1.4" fill="#231710"/></svg>
+        Cart
+        <span class="cart-badge" id="navCartCount">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="eyebrow">About the Roast</div>
+  <h1>From a cart on Curry&nbsp;Street to a full espresso bar</h1>
+  <p>Same recipe, same roaster — just more seats, and now a rider at the door.</p>
+</header>
+
+<!-- ABOUT CONTENT -->
+<section class="section">
+  <div class="wrap about-block">
+    <div class="about-copy">
+      <p>Brewtney Café began as a single pushcart parked along Curry Street, pulling shots for early risers on their way to the pier. What started as a two-hour morning stand grew into requests for afternoon orders, then a waiting list for weekend batches.</p>
+      <p>Today the same house blend is roasted every Tuesday in small batches — sourced from growers in Kalinga and Sagada — and pulled to order across a full bar in the middle of Catbalogan City.</p>
+      <p>We kept the part people liked best: showing up wherever you already are. That's why every cup on the menu is built to travel well, packed the same day it's brewed, and handed off in cash the way the cart always did it.</p>
+      <div class="stat-row">
+        <div class="stat"><b>2019</b><span>Cart on Curry St.</span></div>
+        <div class="stat"><b>6</b><span>Days roasted weekly</span></div>
+        <div class="stat"><b>30–45</b><span>Min. to your door</span></div>
+      </div>
+    </div>
+    <div class="ticket">
+      <div class="t-title">Roast Log — Batch #211</div>
+      <div class="t-row"><span>Origin</span><span>Kalinga, PH</span></div>
+      <div class="t-row"><span>Process</span><span>Washed</span></div>
+      <div class="t-row"><span>Roast Level</span><span>Medium</span></div>
+      <div class="t-row"><span>Roasted</span><span>Tuesday</span></div>
+      <div class="t-total"><span>Notes</span><span>Brown sugar, citrus</span></div>
+      <div class="t-stamp">✓ Small batch</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="logo" style="font-family:'Archivo Black',sans-serif;">Brewtney Café</a>
+    <div class="fine">Catbalogan City, Samar · Open daily 7AM–9PM · COD delivery only</div>
+  </div>
+</footer>
+
+<!-- FLOATING CART -->
+<button class="floating-cart" id="floatingCart" onclick="openDrawer()">
+  <span class="fc-count" id="fcCount">0</span>
+  <span>View Cart</span>
+  <span class="fc-total mono" id="fcTotal">₱0</span>
+</button>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <div>
+      <h3>Your Order</h3>
+      <span class="step-label" id="stepLabel">Step 1 of 2 — Review Order</span>
+    </div>
+    <button class="close-x" onclick="closeDrawer()" aria-label="Close cart">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-summary" id="drawerSummary" style="display:none;"></div>
+</aside>
+
+<!-- CONFIRM MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="confirm-ticket">
+    <div class="confirm-check">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#FBF5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h3>Order Placed</h3>
+    <div class="order-no" id="orderNo">ORDER #BC-0000</div>
+    <div id="confirmLines"></div>
+    <div class="confirm-row"><span>Payment Method</span><span id="confirmPayment">Cash on Delivery</span></div>
+    <div class="confirm-row"><span>Delivery Fee</span><span id="confirmDelivery">₱39</span></div>
+    <div class="confirm-total"><span>Total Due</span><span id="confirmTotal">₱0</span></div>
+    <div class="confirm-note" id="confirmNote">Please prepare exact cash if possible. Your rider will call before arrival — estimated 30–45 minutes.</div>
+    <button class="confirm-close" onclick="closeModal()">Back to Menu</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

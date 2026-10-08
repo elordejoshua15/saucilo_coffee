@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hello, Welcome Back!</title>
+
+    <link rel="stylesheet" href="CSS/register.css">
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="panel">
+
+        <h1>Hello, Welcome Back!</h1>
+
+
+        <!-- =========================
+             LOGIN FORM
+        ========================== -->
+
+        <form class="login-form" id="loginForm">
+
+            <div class="field">
+
+                <label for="loginEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email address"
+                    required
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="loginPass">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPass"
+                    placeholder="Enter your password"
+                    required
+                >
+
+            </div>
+
+
+            <div class="row-between">
+
+                <a href="#">
+                    Forgot your password?
+                </a>
+
+            </div>
+
+
+            <button
+                class="submit"
+                type="submit">
+                Login
+            </button>
+
+
+            <p class="or">
+                or
+            </p>
+
+
+            <!-- SOCIAL LOGIN -->
+
+            <div class="social">
+
+                <!-- FACEBOOK -->
+
+                <button type="button">
+
+                    <svg viewBox="0 0 24 24" fill="#1877F2">
+
+                        <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/>
+
+                    </svg>
+
+                    Facebook
+
+                </button>
+
+
+                <!-- GOOGLE -->
+
+                <button type="button">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            fill="#4285F4"
+                            d="M23.52 12.27c0-.85-.08-1.66-.22-2.45H12v4.63h6.46c-.28 1.5-1.13 2.77-2.4 3.62v3h3.88c2.27-2.09 3.58-5.17 3.58-8.8z"
+                        />
+
+                        <path
+                            fill="#34A853"
+                            d="M12 24c3.24 0 5.96-1.07 7.94-2.9l-3.88-3c-1.08.72-2.45 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.94H1.28v3.1C3.25 21.3 7.31 24 12 24z"
+                        />
+
+                        <path
+                            fill="#FBBC05"
+                            d="M5.29 14.31A7.2 7.2 0 0 1 4.9 12c0-.8.14-1.58.39-2.31v-3.1H1.28A11.98 11.98 0 0 0 0 12c0 1.94.46 3.77 1.28 5.41l4.01-3.1z"
+                        />
+
+                        <path
+                            fill="#EA4335"
+                            d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.44-3.44C17.95 1.19 15.24 0 12 0 7.31 0 3.25 2.7 1.28 6.59l4.01 3.1C6.23 6.86 8.88 4.75 12 4.75z"
+                        />
+
+                    </svg>
+
+                    Google
+
+                </button>
+
+            </div>
+
+
+            <p class="signup-line">
+                Don't have an account?
+            </p>
+
+
+            <button
+                class="create"
+                id="createAccountBtn"
+                type="button">
+
+                Create account
+
+            </button>
+
+        </form>
+
+
+
+        <!-- =========================
+             REGISTER FORM
+        ========================== -->
+
+        <form
+            class="register-form"
+            id="regForm">
+
+            <div class="field">
+
+                <label for="regName">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    placeholder="Enter your full name"
+                    id="regName"
+                    required
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="regEmail">
+                    Email address
+                </label>
+
+                <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    id="regEmail"
+                    required
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="regPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    placeholder="Create a password"
+                    id="regPassword"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                class="submit"
+                type="submit">
+
+                Create account
+
+            </button>
+
+
+            <p class="signup-line">
+
+                Already have an account?
+
+                <span
+                    id="signInBtn"
+                    style="color:#4fa8e0; cursor:pointer;">
+
+                    Sign in
+
+                </span>
+
+            </p>
+
+        </form>
+
+    </div>
+
+
+    <div class="photo"></div>
+
+</div>
+
+
+<!-- JavaScript -->
+<script src="JS/register.js"></script>
+
+</body>
+</html>

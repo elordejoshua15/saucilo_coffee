@@ -1,0 +1,3637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Menu — Brewtney Café</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --espresso:#231710;
+  --espresso-2:#2f2119;
+  --paper:#FBF5E9;
+  --paper-dim:#EFE6D3;
+  --amber:#E8873A;
+  --amber-dim:#c96f28;
+  --sage:#7C8B5C;
+  --cream:#F5EFE3;
+  --ink:#231710;
+  --muted:#9c8a78;
+  --line:rgba(245,239,227,0.14);
+}
+
+*{box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  margin:0;
+  background:var(--espresso);
+  color:var(--cream);
+  font-family:'Manrope',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,.display{
+  font-family:'Archivo Black',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  margin:0;
+}
+
+.mono{font-family:'Space Mono',monospace;}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img,svg{display:block;}
+
+button{
+  font-family:inherit;
+  cursor:pointer;
+  border:none;
+  background:none;
+  color:inherit;
+}
+
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 28px;
+}
+
+/* ---------- NAV ---------- */
+
+.nav{
+  position:sticky;
+  top:0;
+  z-index:40;
+  background:rgba(35,23,16,0.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 28px;
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:'Archivo Black',sans-serif;
+  font-size:19px;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+}
+
+.logo .mark{
+  width:32px;
+  height:32px;
+  flex:none;
+}
+
+.nav-links{
+  display:flex;
+  gap:32px;
+  font-size:13px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-weight:700;
+  color:var(--muted);
+}
+
+.nav-links a:hover{
+  color:var(--amber);
+}
+
+.nav-links a.current{
+  color:var(--amber);
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.cart-btn{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:var(--paper);
+  color:var(--ink);
+  padding:9px 16px 9px 12px;
+  border-radius:100px;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:0.3px;
+}
+
+.cart-badge{
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  background:var(--amber);
+  color:var(--espresso);
+  font-family:'Space Mono',monospace;
+  font-weight:700;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  border:2px solid var(--espresso);
+}
+
+@media (max-width:760px){
+  .nav-links{
+    display:none;
+  }
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+  position:relative;
+  padding:100px 28px 90px;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 700px 400px at 85% -10%, rgba(232,135,58,0.20), transparent 60%),
+    var(--espresso);
+  border-bottom:1px solid var(--line);
+}
+
+.hero-grain{
+  position:absolute;
+  inset:0;
+  opacity:0.5;
+  pointer-events:none;
+  background-image:radial-gradient(rgba(245,239,227,0.035) 1px, transparent 1px);
+  background-size:3px 3px;
+}
+
+.hero-inner{
+  max-width:1180px;
+  margin:0 auto;
+  position:relative;
+  display:grid;
+  grid-template-columns:1.15fr 0.85fr;
+  gap:40px;
+  align-items:center;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:'Space Mono',monospace;
+  font-size:12px;
+  letter-spacing:2px;
+  color:var(--amber);
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+
+.eyebrow::before{
+  content:"";
+  width:22px;
+  height:1px;
+  background:var(--amber);
+}
+
+.hero h1{
+  font-size:clamp(46px,7vw,86px);
+  line-height:0.94;
+  color:var(--paper);
+}
+
+.hero h1 span{
+  color:var(--amber);
+}
+
+.hero p.sub{
+  margin-top:22px;
+  font-size:17px;
+  line-height:1.6;
+  color:var(--muted);
+  max-width:440px;
+}
+
+.hero-cta{
+  display:flex;
+  gap:14px;
+  margin-top:34px;
+  flex-wrap:wrap;
+}
+
+.btn-primary{
+  background:var(--amber);
+  color:var(--espresso);
+  padding:15px 26px;
+  border-radius:2px;
+  font-weight:800;
+  font-size:14px;
+  letter-spacing:0.4px;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:transform 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary:hover{
+  background:#f4914a;
+  transform:translateY(-2px);
+}
+
+.btn-ghost{
+  border:1px solid var(--line);
+  color:var(--paper);
+  padding:15px 26px;
+  border-radius:2px;
+  font-weight:800;
+  font-size:14px;
+  letter-spacing:0.4px;
+  text-transform:uppercase;
+}
+
+.btn-ghost:hover{
+  border-color:var(--amber);
+  color:var(--amber);
+}
+
+/* receipt ticket signature element */
+
+.ticket{
+  background:var(--paper);
+  color:var(--ink);
+  padding:26px 24px 30px;
+  position:relative;
+  font-family:'Space Mono',monospace;
+  box-shadow:0 24px 60px rgba(0,0,0,0.45);
+  transform:rotate(2.2deg);
+}
+
+.ticket::before,
+.ticket::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  height:14px;
+  background:
+    radial-gradient(circle at 8px 0, transparent 8px, var(--espresso) 8.5px) 0 0/16px 16px repeat-x;
+}
+
+.ticket::before{
+  top:-1px;
+  transform:translateY(-50%);
+}
+
+.ticket::after{
+  bottom:-1px;
+  transform:translateY(50%) rotate(180deg);
+}
+
+.ticket .t-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:12.5px;
+  padding:5px 0;
+  border-bottom:1px dashed rgba(35,23,16,0.25);
+}
+
+.ticket .t-title{
+  font-family:'Archivo Black',sans-serif;
+  font-size:15px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  letter-spacing:0.5px;
+}
+
+.ticket .t-total{
+  display:flex;
+  justify-content:space-between;
+  font-weight:700;
+  font-size:14px;
+  margin-top:12px;
+  padding-top:10px;
+  border-top:1px solid var(--ink);
+}
+
+.ticket .t-stamp{
+  margin-top:16px;
+  display:inline-block;
+  border:2px solid var(--sage);
+  color:var(--sage);
+  font-size:10.5px;
+  letter-spacing:1.5px;
+  padding:4px 10px;
+  transform:rotate(-4deg);
+  font-weight:700;
+}
+
+/* ---------- PAGE HEADER ---------- */
+
+.page-header{
+  padding:70px 28px 50px;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(ellipse 600px 300px at 15% 0%, rgba(232,135,58,0.15), transparent 60%),
+    var(--espresso);
+}
+
+.page-header h1{
+  font-size:clamp(36px,5.5vw,58px);
+  color:var(--paper);
+}
+
+.page-header p{
+  margin-top:16px;
+  color:var(--muted);
+  max-width:520px;
+  font-size:15.5px;
+  line-height:1.6;
+}
+
+/* ---------- SECTION HEADS ---------- */
+
+.section{
+  padding:88px 28px;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:24px;
+  margin-bottom:44px;
+  flex-wrap:wrap;
+}
+
+.section-head .eyebrow{
+  margin-bottom:12px;
+}
+
+.section-head h2{
+  font-size:clamp(30px,4vw,46px);
+  color:var(--paper);
+}
+
+.section-head p{
+  color:var(--muted);
+  max-width:360px;
+  font-size:14.5px;
+  line-height:1.6;
+}
+
+/* ---------- CATEGORY TABS ---------- */
+
+.tabs{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:38px;
+}
+
+.tab{
+  padding:10px 18px;
+  border:1px solid var(--line);
+  border-radius:100px;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0.3px;
+  color:var(--muted);
+  text-transform:uppercase;
+}
+
+.tab.active{
+  background:var(--amber);
+  border-color:var(--amber);
+  color:var(--espresso);
+}
+
+/* ---------- MENU GRID ---------- */
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+@media(max-width:900px){
+  .menu-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:560px){
+  .menu-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.item{
+  background:var(--espresso-2);
+  border:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  transition:border-color 0.15s ease, transform 0.15s ease;
+}
+
+.item:hover{
+  border-color:rgba(232,135,58,0.5);
+  transform:translateY(-3px);
+}
+
+.item-art{
+  height:150px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(232,135,58,0.18), transparent 60%),
+    var(--espresso);
+  border-bottom:1px solid var(--line);
+  position:relative;
+}
+
+.item-tag{
+  position:absolute;
+  top:10px;
+  left:10px;
+  z-index:2;
+  font-family:'Space Mono',monospace;
+  font-size:10px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--amber);
+  border:1px solid rgba(232,135,58,0.5);
+  padding:3px 8px;
+  border-radius:100px;
+  background:rgba(35,23,16,0.55);
+  backdrop-filter:blur(2px);
+}
+
+.item-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+}
+
+.item-body{
+  padding:18px 18px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  flex:1;
+}
+
+.item-name{
+  font-size:16px;
+  font-weight:800;
+  color:var(--paper);
+}
+
+.item-desc{
+  font-size:12.5px;
+  color:var(--muted);
+  line-height:1.5;
+  min-height:34px;
+}
+
+.item-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:auto;
+  padding-top:6px;
+}
+
+.item-price{
+  font-family:'Space Mono',monospace;
+  font-weight:700;
+  font-size:15px;
+  color:var(--amber);
+}
+
+.add-btn{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:var(--amber);
+  color:var(--espresso);
+  padding:8px 14px;
+  border-radius:2px;
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.3px;
+}
+
+.add-btn:hover{
+  background:#f4914a;
+}
+
+.stepper{
+  display:flex;
+  align-items:center;
+  gap:0;
+  border:1px solid var(--amber);
+  border-radius:2px;
+  overflow:hidden;
+}
+
+.stepper button{
+  width:28px;
+  height:32px;
+  color:var(--amber);
+  font-size:16px;
+  font-weight:700;
+}
+
+.stepper button:hover{
+  background:rgba(232,135,58,0.15);
+}
+
+.stepper .qty{
+  width:26px;
+  text-align:center;
+  font-family:'Space Mono',monospace;
+  font-size:13px;
+  color:var(--paper);
+}
+
+/* ---------- STRIP ---------- */
+
+.strip{
+  background:var(--paper);
+  color:var(--ink);
+  padding:70px 28px;
+}
+
+.strip-grid{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:36px;
+}
+
+@media(max-width:760px){
+  .strip-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.strip-item .num{
+  font-family:'Space Mono',monospace;
+  color:var(--amber-dim);
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.strip-item h3{
+  font-size:19px;
+  margin-bottom:8px;
+}
+
+.strip-item p{
+  font-size:13.5px;
+  line-height:1.6;
+  color:#6b5645;
+  margin:0;
+}
+
+/* ---------- ABOUT PAGE EXTRAS ---------- */
+
+.about-block{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:start;
+}
+
+@media(max-width:800px){
+  .about-block{
+    grid-template-columns:1fr;
+  }
+}
+
+.about-block .ticket{
+  transform:rotate(-1.5deg);
+}
+
+.about-copy p{
+  font-size:15px;
+  line-height:1.75;
+  color:var(--muted);
+  margin:0 0 18px;
+}
+
+.stat-row{
+  display:flex;
+  gap:36px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.stat-row .stat b{
+  display:block;
+  font-family:'Archivo Black',sans-serif;
+  font-size:30px;
+  color:var(--amber);
+}
+
+.stat-row .stat span{
+  font-size:11.5px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* ---------- DELIVERY PAGE EXTRAS ---------- */
+
+.step-list{
+  counter-reset:step;
+  max-width:720px;
+  margin:0 auto;
+}
+
+.step-list .step{
+  display:grid;
+  grid-template-columns:64px 1fr;
+  gap:22px;
+  padding:26px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.step-list .step:last-child{
+  border-bottom:none;
+}
+
+.step-list .step .snum{
+  font-family:'Space Mono',monospace;
+  font-size:13px;
+  color:var(--amber);
+  border:1px solid var(--amber);
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.step-list .step h3{
+  font-size:18px;
+  color:var(--paper);
+  margin-bottom:8px;
+}
+
+.step-list .step p{
+  font-size:14px;
+  line-height:1.65;
+  color:var(--muted);
+  margin:0;
+  max-width:480px;
+}
+
+.coverage-box{
+  margin-top:20px;
+  background:var(--espresso-2);
+  border:1px solid var(--line);
+  padding:22px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:16px;
+}
+
+.coverage-box .cb-text b{
+  display:block;
+  color:var(--paper);
+  font-size:15px;
+  margin-bottom:4px;
+}
+
+.coverage-box .cb-text span{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.coverage-box .cb-fee{
+  font-family:'Space Mono',monospace;
+  font-size:22px;
+  color:var(--amber);
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+  padding:50px 28px 34px;
+  border-top:1px solid var(--line);
+}
+
+.footer-inner{
+  max-width:1180px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:16px;
+}
+
+.footer-inner .logo{
+  font-size:16px;
+}
+
+footer .fine{
+  font-size:12px;
+  color:var(--muted);
+  font-family:'Space Mono',monospace;
+}
+
+/* ---------- FLOATING CART ---------- */
+
+.floating-cart{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  z-index:50;
+  background:var(--amber);
+  color:var(--espresso);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 20px;
+  border-radius:100px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.4);
+  font-weight:800;
+  font-size:14px;
+  transform:translateY(120px);
+  opacity:0;
+  transition:transform 0.25s ease, opacity 0.25s ease;
+}
+
+.floating-cart.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.floating-cart .fc-total{
+  font-family:'Space Mono',monospace;
+}
+
+.floating-cart .fc-count{
+  background:var(--espresso);
+  color:var(--paper);
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Space Mono',monospace;
+}
+
+/* ---------- CART DRAWER ---------- */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,10,7,0.6);
+  z-index:60;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.25s ease;
+}
+
+.overlay.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.drawer{
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  width:420px;
+  max-width:92vw;
+  z-index:70;
+  background:var(--paper);
+  color:var(--ink);
+  transform:translateX(100%);
+  transition:transform 0.3s ease;
+  display:flex;
+  flex-direction:column;
+  font-family:'Space Mono',monospace;
+}
+
+.drawer.show{
+  transform:translateX(0);
+}
+
+.drawer-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 22px;
+  border-bottom:1px dashed rgba(35,23,16,0.3);
+}
+
+.drawer-head h3{
+  font-family:'Archivo Black',sans-serif;
+  font-size:16px;
+  text-transform:uppercase;
+}
+
+.drawer-head .close-x{
+  font-size:20px;
+  color:var(--ink);
+  line-height:1;
+  padding:4px;
+}
+
+.drawer-body{
+  flex:1;
+  overflow-y:auto;
+  padding:16px 22px;
+}
+
+.empty-cart{
+  text-align:center;
+  padding:60px 10px;
+  color:#8a7a67;
+  font-size:13px;
+}
+
+.empty-cart .cup{
+  margin:0 auto 16px;
+}
+
+.cart-line{
+  display:flex;
+  gap:12px;
+  padding:14px 0;
+  border-bottom:1px dashed rgba(35,23,16,0.25);
+}
+
+.cart-line .cl-thumb{
+  position:relative;
+  width:44px;
+  height:44px;
+  flex:none;
+  border:1px solid rgba(35,23,16,0.2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--paper-dim);
+  overflow:hidden;
+}
+
+.cl-thumb-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+}
+
+.cart-line .cl-info{
+  flex:1;
+}
+
+.cart-line .cl-name{
+  font-family:'Manrope',sans-serif;
+  font-weight:800;
+  font-size:13.5px;
+  margin-bottom:4px;
+}
+
+.cart-line .cl-price{
+  font-size:11.5px;
+  color:#8a7a67;
+}
+
+.cart-line .cl-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:8px;
+}
+
+.cart-line .cl-stepper{
+  display:flex;
+  align-items:center;
+  border:1px solid rgba(35,23,16,0.3);
+}
+
+.cart-line .cl-stepper button{
+  width:22px;
+  height:22px;
+  font-size:13px;
+}
+
+.cart-line .cl-stepper .cl-qty{
+  width:20px;
+  text-align:center;
+  font-size:12px;
+}
+
+.cart-line .cl-remove{
+  font-size:10px;
+  letter-spacing:0.5px;
+  text-decoration:underline;
+  color:#a3402a;
+}
+
+.drawer-form{
+  padding:0 0 6px;
+}
+
+.drawer-form .field-label{
+  font-size:10.5px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#8a7a67;
+  margin:16px 0 6px;
+  font-family:'Space Mono',monospace;
+}
+
+.drawer-form input,
+.drawer-form textarea{
+  width:100%;
+  background:var(--cream);
+  border:1px solid rgba(35,23,16,0.25);
+  padding:10px 12px;
+  font-family:'Manrope',sans-serif;
+  font-size:13.5px;
+  color:var(--ink);
+  border-radius:2px;
+}
+
+.drawer-form textarea{
+  resize:vertical;
+  min-height:52px;
+}
+
+.pay-method{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid var(--sage);
+  background:rgba(124,139,92,0.1);
+  padding:12px 14px;
+  margin-top:8px;
+  border-radius:2px;
+}
+
+.pay-method .dot{
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  border:2px solid var(--sage);
+  position:relative;
+  flex:none;
+}
+
+.pay-method .dot::after{
+  content:"";
+  position:absolute;
+  inset:2px;
+  background:var(--sage);
+  border-radius:50%;
+}
+
+.pay-method .pm-text{
+  font-family:'Manrope',sans-serif;
+}
+
+.pay-method .pm-text b{
+  display:block;
+  font-size:13px;
+}
+
+.pay-method .pm-text span{
+  font-size:11px;
+  color:#6b5645;
+}
+
+.step-label{
+  display:block;
+  font-family:'Space Mono',monospace;
+  font-size:10px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#9c8a78;
+  margin-top:3px;
+}
+
+.payment-options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:4px;
+}
+
+.pm-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:10px;
+  border:1px solid rgba(35,23,16,0.25);
+  background:var(--cream);
+  padding:14px;
+  border-radius:2px;
+  text-align:left;
+  transition:border-color 0.15s ease, background 0.15s ease;
+}
+
+.pm-card:hover{
+  border-color:var(--amber-dim);
+}
+
+.pm-card.selected{
+  border-color:var(--sage);
+  background:rgba(124,139,92,0.12);
+}
+
+.pm-icon{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  color:#fff;
+  font-family:'Space Mono',monospace;
+  font-weight:700;
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.pm-name{
+  font-family:'Manrope',sans-serif;
+  font-weight:800;
+  font-size:13px;
+  color:var(--ink);
+}
+
+.pm-check{
+  position:absolute;
+  top:10px;
+  right:10px;
+  color:var(--sage);
+  font-weight:700;
+  font-size:13px;
+}
+
+.pm-detail{
+  margin-top:16px;
+  border:1px dashed rgba(35,23,16,0.3);
+  padding:16px;
+  border-radius:2px;
+  background:var(--cream);
+}
+
+.pm-detail-title{
+  font-family:'Manrope',sans-serif;
+  font-weight:800;
+  font-size:13.5px;
+  margin-bottom:8px;
+  color:var(--ink);
+}
+
+.pm-detail p{
+  font-size:12px;
+  line-height:1.6;
+  color:#6b5645;
+  margin:0 0 10px;
+}
+
+.cod-detail p{
+  margin-bottom:0;
+}
+
+.qr-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:8px;
+  padding:6px 0 4px;
+}
+
+.qr-box p{
+  max-width:240px;
+}
+
+.pm-input{
+  width:100%;
+  background:var(--paper);
+  border:1px solid rgba(35,23,16,0.25);
+  padding:10px 12px;
+  font-family:'Manrope',sans-serif;
+  font-size:13px;
+  color:var(--ink);
+  border-radius:2px;
+  margin-top:4px;
+}
+
+.pm-note{
+  font-size:10.5px !important;
+  color:#a3402a !important;
+  text-align:center;
+  margin-top:8px !important;
+}
+
+.deliver-to-box{
+  border:1px solid rgba(35,23,16,0.2);
+  background:var(--paper-dim);
+  padding:12px 14px;
+  border-radius:2px;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  font-family:'Manrope',sans-serif;
+  font-size:12.5px;
+  color:#4a3a2c;
+}
+
+.deliver-to-box b{
+  font-size:13.5px;
+  color:var(--ink);
+}
+
+.back-link{
+  display:block;
+  width:100%;
+  text-align:center;
+  margin-top:10px;
+  font-family:'Manrope',sans-serif;
+  font-size:12px;
+  color:#6b5645;
+  text-decoration:underline;
+}
+
+.back-link:hover{
+  color:var(--ink);
+}
+
+.drawer-summary{
+  border-top:1px dashed rgba(35,23,16,0.3);
+  padding:16px 22px;
+  background:var(--paper-dim);
+}
+
+.sum-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:12.5px;
+  padding:4px 0;
+}
+
+.sum-row.total{
+  font-family:'Manrope',sans-serif;
+  font-weight:800;
+  font-size:15px;
+  padding-top:10px;
+  margin-top:6px;
+  border-top:1px solid var(--ink);
+}
+
+.place-order{
+  width:100%;
+  margin-top:14px;
+  background:var(--espresso);
+  color:var(--paper);
+  padding:15px;
+  font-family:'Manrope',sans-serif;
+  font-weight:800;
+  font-size:13.5px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  border-radius:2px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+.place-order:hover{
+  background:#3a2a1e;
+}
+
+.place-order:disabled{
+  opacity:0.4;
+  cursor:not-allowed;
+}
+
+/* ---------- CONFIRM MODAL ---------- */
+
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,10,7,0.72);
+  z-index:80;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.25s ease;
+}
+
+.modal-overlay.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.confirm-ticket{
+  background:var(--paper);
+  color:var(--ink);
+  width:380px;
+  max-width:100%;
+  font-family:'Space Mono',monospace;
+  position:relative;
+  padding:30px 26px 28px;
+  transform:scale(0.9);
+  transition:transform 0.25s ease;
+  max-height:86vh;
+  overflow-y:auto;
+}
+
+.modal-overlay.show .confirm-ticket{
+  transform:scale(1);
+}
+
+.confirm-ticket::before,
+.confirm-ticket::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  height:14px;
+  background:
+    radial-gradient(circle at 8px 0, transparent 8px, var(--espresso) 8.5px) 0 0/16px 16px repeat-x;
+}
+
+.confirm-ticket::before{
+  top:-1px;
+  transform:translateY(-50%);
+}
+
+.confirm-ticket::after{
+  bottom:-1px;
+  transform:translateY(50%) rotate(180deg);
+}
+
+.confirm-check{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:var(--sage);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 16px;
+}
+
+.confirm-ticket h3{
+  font-family:'Archivo Black',sans-serif;
+  text-align:center;
+  font-size:17px;
+  text-transform:uppercase;
+}
+
+.confirm-ticket .order-no{
+  text-align:center;
+  color:var(--amber-dim);
+  font-size:12px;
+  margin:6px 0 20px;
+}
+
+.confirm-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  padding:5px 0;
+  border-bottom:1px dashed rgba(35,23,16,0.25);
+}
+
+.confirm-total{
+  display:flex;
+  justify-content:space-between;
+  font-weight:700;
+  font-size:14px;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid var(--ink);
+}
+
+.confirm-note{
+  margin-top:16px;
+  font-size:11px;
+  line-height:1.6;
+  color:#6b5645;
+  text-align:center;
+  background:var(--paper-dim);
+  padding:10px;
+  border-radius:2px;
+}
+
+.confirm-close{
+  width:100%;
+  margin-top:18px;
+  background:var(--espresso);
+  color:var(--paper);
+  padding:13px;
+  font-family:'Manrope',sans-serif;
+  font-weight:800;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+
+/* ---------- LOGIN REQUIRED POPUP ---------- */
+
+.login-prompt-overlay{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(15,10,7,0.72);
+  z-index:999999;
+}
+
+.login-prompt-overlay.show{
+  display:flex !important;
+}
+
+.login-prompt{
+  width:380px;
+  max-width:100%;
+  background:var(--paper);
+  color:var(--ink);
+  padding:30px 26px;
+  border-radius:4px;
+  box-shadow:0 25px 70px rgba(0,0,0,0.45);
+  text-align:center;
+  position:relative;
+  animation:loginPromptIn 0.2s ease;
+}
+
+@keyframes loginPromptIn{
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(0.96);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.login-prompt-close{
+  position:absolute;
+  top:10px;
+  right:12px;
+  font-size:24px;
+  color:var(--ink);
+  line-height:1;
+  padding:4px 8px;
+}
+
+.login-prompt-icon{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:rgba(232,135,58,0.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 14px;
+  font-size:27px;
+}
+
+.login-prompt h3{
+  font-family:'Archivo Black',sans-serif;
+  font-size:19px;
+  text-transform:uppercase;
+  margin:0 0 10px;
+}
+
+.login-prompt p{
+  font-family:'Manrope',sans-serif;
+  color:#6b5645;
+  font-size:13.5px;
+  line-height:1.6;
+  margin:0 auto 20px;
+  max-width:300px;
+}
+
+.login-prompt-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.login-cancel,
+.login-go{
+  padding:12px 14px;
+  font-family:'Manrope',sans-serif;
+  font-weight:800;
+  font-size:13px;
+  border-radius:2px;
+}
+
+.login-cancel{
+  background:var(--cream);
+  border:1px solid rgba(35,23,16,0.25);
+  color:var(--ink);
+}
+
+.login-go{
+  background:var(--amber);
+  color:var(--espresso);
+}
+
+.login-go:hover{
+  background:#f4914a;
+}
+
+.login-cancel:hover{
+  border-color:var(--amber-dim);
+}
+
+/* ---------- USER ACCOUNT DROPDOWN ---------- */
+
+.user-account{
+  position:relative;
+}
+
+.user-chip{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--line);
+  padding:6px 12px 6px 6px;
+  border-radius:100px;
+}
+
+.user-chip:hover{
+  border-color:var(--amber);
+}
+
+.user-avatar{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:var(--amber);
+  color:var(--espresso);
+  font-family:'Space Mono',monospace;
+  font-weight:700;
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+}
+
+.user-name{
+  font-size:13px;
+  font-weight:700;
+  color:var(--paper);
+  max-width:110px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.user-dropdown{
+  position:absolute;
+  top:calc(100% + 10px);
+  right:0;
+  min-width:170px;
+  background:var(--paper);
+  color:var(--ink);
+  border-radius:4px;
+  box-shadow:0 16px 40px rgba(0,0,0,0.35);
+  padding:6px;
+  display:none;
+  flex-direction:column;
+  gap:2px;
+  z-index:90;
+}
+
+.user-dropdown.show{
+  display:flex;
+}
+
+.user-dropdown button{
+  text-align:left;
+  padding:9px 12px;
+  border-radius:2px;
+  font-family:'Manrope',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink);
+  width:100%;
+}
+
+.user-dropdown button:hover{
+  background:var(--paper-dim);
+}
+
+.user-dropdown .logout-btn{
+  color:#a3402a;
+  border-top:1px solid rgba(35,23,16,0.12);
+  margin-top:4px;
+  padding-top:10px;
+}
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:rgba(35,23,16,0.3);
+}
+
+:focus-visible{
+  outline:2px solid var(--amber);
+  outline-offset:2px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{
+    transition:none !important;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav class="nav">
+
+  <div class="nav-inner">
+
+    <a href="index.html" class="logo">
+
+      <svg class="mark" viewBox="0 0 32 32" fill="none">
+        <path d="M6 12h17v8a8 8 0 0 1-8 8h-1a8 8 0 0 1-8-8v-8Z"
+              stroke="#E8873A"
+              stroke-width="2"/>
+        <path d="M23 14h2a3 3 0 0 1 0 6h-2"
+              stroke="#E8873A"
+              stroke-width="2"/>
+        <path d="M11 6c-1 1.5-1 2.5 0 4M16 6c-1 1.5-1 2.5 0 4"
+              stroke="#E8873A"
+              stroke-width="2"
+              stroke-linecap="round"/>
+      </svg>
+
+      Brewtney Café
+
+    </a>
+
+    <div class="nav-links">
+
+      <a href="menu.html" class="current">Menu</a>
+      <a href="about.html">About</a>
+      <a href="delivery.html">Delivery</a>
+
+    </div>
+
+    <div class="nav-right">
+
+      <div class="user-account" id="userAccount">
+
+        <button class="user-chip" type="button" onclick="toggleUserMenu(event)">
+          <span class="user-avatar" id="userAvatar"></span>
+          <span class="user-name" id="userNameDisplay"></span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#9c8a78" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="user-dropdown" id="userDropdown">
+          <button type="button" onclick="goToAccount()">Account</button>
+          <button type="button" onclick="goToProfile()">Profile</button>
+          <button type="button" onclick="goToSettings()">Settings</button>
+          <button type="button" class="logout-btn" onclick="logoutUser()">Logout</button>
+        </div>
+
+      </div>
+
+      <button class="cart-btn" onclick="openDrawer()" type="button">
+
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6"
+                stroke="#231710"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+          <circle cx="9" cy="21" r="1.4" fill="#231710"/>
+          <circle cx="17" cy="21" r="1.4" fill="#231710"/>
+        </svg>
+
+        Cart
+
+        <span class="cart-badge" id="navCartCount">0</span>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<!-- PAGE HEADER -->
+
+<header class="page-header">
+
+  <div class="eyebrow">The Menu</div>
+
+  <h1>Pick your pour</h1>
+
+  <p>
+    Every add-to-cart tap works like your favorite marketplace app —
+    adjust quantity, then check out with cash on hand.
+  </p>
+
+</header>
+
+<!-- MENU -->
+
+<section class="section" style="padding-top:56px;">
+
+  <div class="wrap">
+
+    <div class="tabs" id="tabs">
+
+      <button class="tab active" data-cat="all" type="button">
+        All Items
+      </button>
+
+      <button class="tab" data-cat="coffee" type="button">
+        Coffee
+      </button>
+
+      <button class="tab" data-cat="non-coffee" type="button">
+        Non-Coffee
+      </button>
+
+      <button class="tab" data-cat="food" type="button">
+        Pastries &amp; Food
+      </button>
+
+    </div>
+
+    <div class="menu-grid" id="menuGrid"></div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-inner">
+
+    <a href="index.html"
+       class="logo"
+       style="font-family:'Archivo Black',sans-serif;">
+      Brewtney Café
+    </a>
+
+    <div class="fine">
+      Catbalogan City, Samar · Open daily 7AM–9PM · COD delivery only
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- FLOATING CART -->
+
+<button
+  class="floating-cart"
+  id="floatingCart"
+  onclick="openDrawer()"
+  type="button">
+
+  <span class="fc-count" id="fcCount">0</span>
+
+  <span>View Cart</span>
+
+  <span class="fc-total mono" id="fcTotal">₱0</span>
+
+</button>
+
+<!-- CART DRAWER -->
+
+<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+
+  <div class="drawer-head">
+
+    <div>
+
+      <h3>Your Order</h3>
+
+      <span class="step-label" id="stepLabel">
+        Step 1 of 2 — Review Order
+      </span>
+
+    </div>
+
+    <button
+      class="close-x"
+      onclick="closeDrawer()"
+      aria-label="Close cart"
+      type="button">
+      ✕
+    </button>
+
+  </div>
+
+  <div class="drawer-body" id="drawerBody"></div>
+
+  <div
+    class="drawer-summary"
+    id="drawerSummary"
+    style="display:none;">
+  </div>
+
+</aside>
+
+<!-- LOGIN REQUIRED POPUP -->
+
+<div
+  class="login-prompt-overlay"
+  id="loginPrompt"
+  onclick="handleLoginPromptBackground(event)">
+
+  <div
+    class="login-prompt"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="loginPromptTitle"
+    onclick="event.stopPropagation()">
+
+    <button
+      class="login-prompt-close"
+      onclick="cancelLogin()"
+      type="button"
+      aria-label="Close">
+      ×
+    </button>
+
+    <div class="login-prompt-icon">
+      🛒
+    </div>
+
+    <h3 id="loginPromptTitle">
+      Login Required
+    </h3>
+
+    <p>
+      Please log in or create an account before proceeding to your order.
+    </p>
+
+    <div class="login-prompt-actions">
+
+      <button
+        class="login-cancel"
+        onclick="cancelLogin()"
+        type="button">
+        Cancel
+      </button>
+
+      <button
+        class="login-go"
+        onclick="goToLogin()"
+        type="button">
+        Log in
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- CONFIRM MODAL -->
+
+<div class="modal-overlay" id="modalOverlay">
+
+  <div class="confirm-ticket">
+
+    <div class="confirm-check">
+
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M5 13l4 4L19 7"
+          stroke="#FBF5E9"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+      </svg>
+
+    </div>
+
+    <h3>Order Placed</h3>
+
+    <div class="order-no" id="orderNo">
+      ORDER #BC-0000
+    </div>
+
+    <div id="confirmLines"></div>
+
+    <div class="confirm-row">
+      <span>Payment Method</span>
+      <span id="confirmPayment">Cash on Delivery</span>
+    </div>
+
+    <div class="confirm-row">
+      <span>Delivery Fee</span>
+      <span id="confirmDelivery">₱39</span>
+    </div>
+
+    <div class="confirm-total">
+      <span>Total Due</span>
+      <span id="confirmTotal">₱0</span>
+    </div>
+
+    <div class="confirm-note" id="confirmNote">
+      Please prepare exact cash if possible.
+      Your rider will call before arrival —
+      estimated 30–45 minutes.
+    </div>
+
+    <button
+      class="confirm-close"
+      onclick="closeModal()"
+      type="button">
+      Back to Menu
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+
+/* =========================================================
+   DATA
+========================================================= */
+
+const MENU = [
+
+  {
+    id:'sig-latte',
+    cat:'coffee',
+    name:'Brewtney Signature Latte',
+    desc:'House espresso, steamed milk, hint of brown sugar.',
+    price:135,
+    img:'https://i.pinimg.com/1200x/f8/56/d2/f856d2d30045e34f7a3d7438d81c5141.jpg'
+  },
+
+  {
+    id:'caramel-mac',
+    cat:'coffee',
+    name:'Caramel Macchiato',
+    desc:'Vanilla, espresso, caramel drizzle.',
+    price:145,
+    img:'https://images.pexels.com/photos/5305639/pexels-photo-5305639.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'spanish-latte',
+    cat:'coffee',
+    name:'Spanish Latte',
+    desc:'Sweet condensed milk, double shot.',
+    price:140,
+    img:'https://images.pexels.com/photos/10738363/pexels-photo-10738363.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'americano',
+    cat:'coffee',
+    name:'Americano',
+    desc:'Espresso over ice or hot water, black.',
+    price:110,
+    img:'https://images.pexels.com/photos/3846220/pexels-photo-3846220.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'cappuccino',
+    cat:'coffee',
+    name:'Cappuccino',
+    desc:'Equal parts espresso, milk, and foam.',
+    price:125,
+    img:'https://images.pexels.com/photos/6867/pexels-photo-6867.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'mocha',
+    cat:'coffee',
+    name:'Dark Mocha',
+    desc:'70% cacao, espresso, steamed milk.',
+    price:150,
+    img:'https://images.pexels.com/photos/2223247/pexels-photo-2223247.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'matcha',
+    cat:'non-coffee',
+    name:'Matcha Latte',
+    desc:'Ceremonial-grade matcha, oat milk option.',
+    price:150,
+    img:'https://images.pexels.com/photos/8634757/pexels-photo-8634757.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'strawberry',
+    cat:'non-coffee',
+    name:'Strawberry Milk',
+    desc:'Fresh strawberry puree, fresh milk.',
+    price:135,
+    img:'https://images.pexels.com/photos/845552/pexels-photo-845552.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'choco',
+    cat:'non-coffee',
+    name:'Chocolate Overload',
+    desc:'Belgian cocoa, whipped cream top.',
+    price:140,
+    img:'https://images.pexels.com/photos/6341422/pexels-photo-6341422.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'taro',
+    cat:'non-coffee',
+    name:'Taro Milk Tea',
+    desc:'Creamy taro, brown sugar pearls.',
+    price:145,
+    img:'https://images.pexels.com/photos/5335709/pexels-photo-5335709.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'croissant',
+    cat:'food',
+    name:'Butter Croissant',
+    desc:'Baked fresh daily, 63 layers.',
+    price:85,
+    img:'https://images.pexels.com/photos/19296861/pexels-photo-19296861.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'muffin',
+    cat:'food',
+    name:'Blueberry Muffin',
+    desc:'Studded with real blueberries.',
+    price:75,
+    img:'https://images.pexels.com/photos/13054436/pexels-photo-13054436.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'ube-pan',
+    cat:'food',
+    name:'Ube Cheese Pandesal',
+    desc:'Soft pandesal, ube cream, cheese.',
+    price:65,
+    img:'https://images.pexels.com/photos/1287278/pexels-photo-1287278.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'cheesecake',
+    cat:'food',
+    name:'Basque Cheesecake Slice',
+    desc:'Burnt-top, creamy center.',
+    price:120,
+    img:'https://images.pexels.com/photos/6607325/pexels-photo-6607325.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+
+  {
+    id:'panini',
+    cat:'food',
+    name:'Ham & Cheese Panini',
+    desc:'Pressed sourdough, smoked ham.',
+    price:135,
+    img:'https://images.pexels.com/photos/15110224/pexels-photo-15110224.jpeg?auto=compress&cs=tinysrgb&w=800'
+  }
+
+];
+
+const PAYMENT_METHODS = [
+
+  {
+    id:'gcash',
+    name:'GCash',
+    initial:'G',
+    color:'#0072CE'
+  },
+
+  {
+    id:'maya',
+    name:'Maya',
+    initial:'M',
+    color:'#00CB7E'
+  },
+
+  {
+    id:'maribank',
+    name:'Maribank',
+    initial:'MB',
+    color:'#1E4B8F'
+  },
+
+  {
+    id:'cod',
+    name:'Cash on Delivery',
+    initial:'₱',
+    color:'#7C8B5C'
+  }
+
+];
+
+const DELIVERY_FEE = 39;
+
+let cart = {};
+let activeCat = 'all';
+let drawerStep = 'cart';
+let selectedPayment = null;
+
+let customer = {
+  name:'',
+  phone:'',
+  address:''
+};
+
+const cupIcon = `
+<svg width="34" height="34" viewBox="0 0 32 32" fill="none">
+  <path
+    d="M6 12h17v8a8 8 0 0 1-8 8h-1a8 8 0 0 1-8-8v-8Z"
+    stroke="#E8873A"
+    stroke-width="2"/>
+  <path
+    d="M23 14h2a3 3 0 0 1 0 6h-2"
+    stroke="#E8873A"
+    stroke-width="2"/>
+</svg>
+`;
+
+const cupIconGhost = `
+<svg width="40" height="40" viewBox="0 0 32 32" fill="none">
+  <path
+    d="M6 12h17v8a8 8 0 0 1-8 8h-1a8 8 0 0 1-8-8v-8Z"
+    stroke="#c9b89a"
+    stroke-width="2"/>
+  <path
+    d="M23 14h2a3 3 0 0 1 0 6h-2"
+    stroke="#c9b89a"
+    stroke-width="2"/>
+</svg>
+`;
+
+const qrIcon = `
+<svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+
+  <rect x="4" y="4" width="20" height="20"
+        stroke="#231710" stroke-width="3"/>
+
+  <rect x="48" y="4" width="20" height="20"
+        stroke="#231710" stroke-width="3"/>
+
+  <rect x="4" y="48" width="20" height="20"
+        stroke="#231710" stroke-width="3"/>
+
+  <rect x="10" y="10" width="8" height="8"
+        fill="#231710"/>
+
+  <rect x="54" y="10" width="8" height="8"
+        fill="#231710"/>
+
+  <rect x="10" y="54" width="8" height="8"
+        fill="#231710"/>
+
+  <rect x="32" y="4" width="6" height="6"
+        fill="#231710"/>
+
+  <rect x="32" y="16" width="6" height="6"
+        fill="#231710"/>
+
+  <rect x="32" y="32" width="6" height="6"
+        fill="#231710"/>
+
+  <rect x="46" y="32" width="6" height="6"
+        fill="#231710"/>
+
+  <rect x="58" y="32" width="6" height="6"
+        fill="#231710"/>
+
+  <rect x="32" y="46" width="6" height="6"
+        fill="#231710"/>
+
+  <rect x="32" y="58" width="6" height="6"
+        fill="#231710"/>
+
+  <rect x="46" y="58" width="6" height="6"
+        fill="#231710"/>
+
+  <rect x="58" y="58" width="6" height="6"
+        fill="#231710"/>
+
+</svg>
+`;
+
+
+/* =========================================================
+   LOGIN CHECK
+========================================================= */
+
+/*
+   Your login/register page should save the logged-in user
+   using:
+
+   localStorage.setItem("brewtney_user", JSON.stringify(user));
+
+   This function checks that value.
+*/
+
+function getLoggedInUser(){
+
+  const raw = localStorage.getItem('brewtney_user');
+
+  if(!raw){
+    return null;
+  }
+
+  try{
+
+    const user = JSON.parse(raw);
+
+    if(!user || typeof user !== 'object'){
+      return null;
+    }
+
+    return user;
+
+  }catch(error){
+
+    localStorage.removeItem('brewtney_user');
+    localStorage.removeItem('brewtney_user_name');
+
+    return null;
+  }
+}
+
+
+function isUserLoggedIn(){
+
+  return getLoggedInUser() !== null;
+
+}
+
+
+/* =========================================================
+   LOGIN REQUIRED POPUP
+========================================================= */
+
+function openLoginPrompt(){
+
+  /*
+     Close the cart drawer first.
+     This prevents the cart drawer from appearing behind
+     the login popup.
+  */
+
+  closeDrawer();
+
+  const prompt = document.getElementById('loginPrompt');
+
+  if(prompt){
+
+    prompt.classList.add('show');
+
+    document.body.style.overflow = 'hidden';
+
+  }
+
+}
+
+
+function closeLoginPrompt(){
+
+  const prompt = document.getElementById('loginPrompt');
+
+  if(prompt){
+
+    prompt.classList.remove('show');
+
+  }
+
+  document.body.style.overflow = '';
+
+}
+
+
+function goToLogin(){
+
+  closeLoginPrompt();
+
+  window.location.href = 'register.html';
+
+}
+
+
+function cancelLogin(){
+
+  closeLoginPrompt();
+
+  window.location.href = 'index.html';
+
+}
+
+
+function handleLoginPromptBackground(event){
+
+  if(event.target.id === 'loginPrompt'){
+
+    cancelLogin();
+
+  }
+
+}
+
+
+/* =========================================================
+   COOKIE HELPERS
+========================================================= */
+
+function setCookie(name, value, days){
+
+  const expires = new Date(
+    Date.now() + days * 864e5
+  ).toUTCString();
+
+  document.cookie =
+    `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+
+}
+
+
+function getCookie(name){
+
+  const match = document.cookie.match(
+    new RegExp('(^| )' + name + '=([^;]+)')
+  );
+
+  return match
+    ? decodeURIComponent(match[2])
+    : null;
+
+}
+
+
+function saveCart(){
+
+  setCookie(
+    'brewtney_cart',
+    JSON.stringify(cart),
+    3
+  );
+
+}
+
+
+function loadCart(){
+
+  const raw = getCookie('brewtney_cart');
+
+  if(raw){
+
+    try{
+
+      cart = JSON.parse(raw) || {};
+
+    }catch(e){
+
+      cart = {};
+
+    }
+
+  }
+
+}
+
+
+/* =========================================================
+   FORMAT
+========================================================= */
+
+function peso(n){
+
+  return '₱' +
+    n.toLocaleString('en-PH',{
+      minimumFractionDigits:n % 1 ? 2 : 0,
+      maximumFractionDigits:2
+    });
+
+}
+
+
+/* =========================================================
+   MENU RENDERING
+========================================================= */
+
+function renderMenu(){
+
+  const grid = document.getElementById('menuGrid');
+
+  if(!grid) return;
+
+  const items = MENU.filter(
+    m => activeCat === 'all' || m.cat === activeCat
+  );
+
+  grid.innerHTML = items.map(item => {
+
+    const qty = cart[item.id] || 0;
+
+    const tagLabel =
+      item.cat === 'coffee'
+        ? 'Coffee'
+        : item.cat === 'non-coffee'
+          ? 'Non-Coffee'
+          : 'Bakes';
+
+    return `
+
+      <div class="item">
+
+        <div class="item-art">
+
+          <span class="item-tag">
+            ${tagLabel}
+          </span>
+
+          ${cupIcon}
+
+          <img
+            class="item-img"
+            src="${item.img}"
+            alt="${item.name}"
+            loading="lazy"
+            onerror="this.style.display='none'">
+
+        </div>
+
+        <div class="item-body">
+
+          <div class="item-name">
+            ${item.name}
+          </div>
+
+          <div class="item-desc">
+            ${item.desc}
+          </div>
+
+          <div class="item-foot">
+
+            <div class="item-price">
+              ${peso(item.price)}
+            </div>
+
+            <div id="ctrl-${item.id}">
+
+              ${
+                qty > 0
+
+                ? stepperHTML(item.id, qty)
+
+                : `
+                  <button
+                    class="add-btn"
+                    onclick="addItem('${item.id}')"
+                    type="button">
+
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none">
+
+                      <path
+                        d="M12 5v14M5 12h14"
+                        stroke="#231710"
+                        stroke-width="2.5"
+                        stroke-linecap="round"/>
+
+                    </svg>
+
+                    Add
+
+                  </button>
+                `
+              }
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+  }).join('');
+
+}
+
+
+function stepperHTML(id, qty){
+
+  return `
+
+    <div class="stepper">
+
+      <button
+        onclick="decItem('${id}')"
+        type="button"
+        aria-label="Decrease quantity">
+        −
+      </button>
+
+      <span class="qty">
+        ${qty}
+      </span>
+
+      <button
+        onclick="addItem('${id}')"
+        type="button"
+        aria-label="Increase quantity">
+        +
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   CART ACTIONS
+========================================================= */
+
+/*
+   IMPORTANT FIX:
+   Add to Cart now checks login status FIRST.
+*/
+
+function addItem(id){
+
+  if(!isUserLoggedIn()){
+
+    openLoginPrompt();
+
+    return;
+
+  }
+
+  cart[id] = (cart[id] || 0) + 1;
+
+  saveCart();
+
+  syncAll();
+
+}
+
+
+function decItem(id){
+
+  /*
+     If somehow logged out while the cart is visible,
+     prevent cart modification.
+  */
+
+  if(!isUserLoggedIn()){
+
+    openLoginPrompt();
+
+    return;
+
+  }
+
+  if(!cart[id]) return;
+
+  cart[id] -= 1;
+
+  if(cart[id] <= 0){
+
+    delete cart[id];
+
+  }
+
+  saveCart();
+
+  syncAll();
+
+}
+
+
+function removeItem(id){
+
+  if(!isUserLoggedIn()){
+
+    openLoginPrompt();
+
+    return;
+
+  }
+
+  delete cart[id];
+
+  saveCart();
+
+  syncAll();
+
+}
+
+
+function cartCount(){
+
+  return Object.values(cart).reduce(
+    (a,b) => a + b,
+    0
+  );
+
+}
+
+
+function cartSubtotal(){
+
+  return Object.entries(cart).reduce(
+    (sum,[id,qty]) => {
+
+      const item = MENU.find(
+        m => m.id === id
+      );
+
+      return sum +
+        (item ? item.price * qty : 0);
+
+    },
+    0
+  );
+
+}
+
+
+/* =========================================================
+   SYNC UI
+========================================================= */
+
+function syncAll(){
+
+  renderMenu();
+
+  renderDrawerBody();
+
+  const count = cartCount();
+
+  const navCount =
+    document.getElementById('navCartCount');
+
+  const fcCount =
+    document.getElementById('fcCount');
+
+  const fcTotal =
+    document.getElementById('fcTotal');
+
+  const floatingCart =
+    document.getElementById('floatingCart');
+
+  if(navCount){
+
+    navCount.textContent = count;
+
+  }
+
+  if(fcCount){
+
+    fcCount.textContent = count;
+
+  }
+
+  if(fcTotal){
+
+    fcTotal.textContent =
+      peso(cartSubtotal());
+
+  }
+
+  if(floatingCart){
+
+    floatingCart.classList.toggle(
+      'show',
+      count > 0
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   DRAWER ROUTER
+========================================================= */
+
+function renderDrawerBody(){
+
+  const body =
+    document.getElementById('drawerBody');
+
+  const stepLabel =
+    document.getElementById('stepLabel');
+
+  if(!body) return;
+
+  if(cartCount() === 0){
+
+    body.innerHTML = `
+
+      <div class="empty-cart">
+
+        <div class="cup">
+          ${cupIconGhost}
+        </div>
+
+        Your cart is empty.
+        <br>
+        Add something warm from the menu.
+
+      </div>
+
+    `;
+
+    if(stepLabel){
+
+      stepLabel.textContent = '';
+
+    }
+
+    renderSummary();
+
+    return;
+
+  }
+
+  if(drawerStep === 'cart'){
+
+    if(stepLabel){
+
+      stepLabel.textContent =
+        'Step 1 of 2 — Review Order';
+
+    }
+
+    renderCartStep(body);
+
+  }else{
+
+    if(stepLabel){
+
+      stepLabel.textContent =
+        'Step 2 of 2 — Payment';
+
+    }
+
+    renderPaymentStep(body);
+
+  }
+
+  renderSummary();
+
+}
+
+
+/* =========================================================
+   STEP 1
+========================================================= */
+
+function renderCartStep(body){
+
+  const entries =
+    Object.entries(cart);
+
+  body.innerHTML =
+
+    entries.map(([id,qty]) => {
+
+      const item =
+        MENU.find(m => m.id === id);
+
+      if(!item) return '';
+
+      return `
+
+        <div class="cart-line">
+
+          <div class="cl-thumb">
+
+            ${cupIcon}
+
+            <img
+              class="cl-thumb-img"
+              src="${item.img}"
+              alt="${item.name}"
+              loading="lazy"
+              onerror="this.style.display='none'">
+
+          </div>
+
+          <div class="cl-info">
+
+            <div class="cl-name">
+              ${item.name}
+            </div>
+
+            <div class="cl-price">
+              ${peso(item.price)} each
+            </div>
+
+          </div>
+
+          <div class="cl-right">
+
+            <div class="cl-stepper">
+
+              <button
+                onclick="decItem('${id}')"
+                type="button">
+                −
+              </button>
+
+              <span class="cl-qty">
+                ${qty}
+              </span>
+
+              <button
+                onclick="addItem('${id}')"
+                type="button">
+                +
+              </button>
+
+            </div>
+
+            <button
+              class="cl-remove"
+              onclick="removeItem('${id}')"
+              type="button">
+              Remove
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }).join('')
+
+    +
+
+    `
+
+      <div class="field-label">
+        Delivery Details
+      </div>
+
+      <div class="drawer-form">
+
+        <input
+          type="text"
+          id="custName"
+          placeholder="Full name"
+          value="${customer.name || ''}">
+
+        <div
+          class="field-label"
+          style="margin-top:12px;">
+          Phone Number
+        </div>
+
+        <input
+          type="tel"
+          id="custPhone"
+          placeholder="09XX XXX XXXX"
+          value="${customer.phone || ''}">
+
+        <div
+          class="field-label"
+          style="margin-top:12px;">
+          Delivery Address
+        </div>
+
+        <textarea
+          id="custAddress"
+          placeholder="House/Unit No., Street, Barangay, Catbalogan City">${customer.address || ''}</textarea>
+
+      </div>
+
+    `;
+
+}
+
+
+function continueToPayment(){
+
+  if(!isUserLoggedIn()){
+
+    openLoginPrompt();
+
+    return;
+
+  }
+
+  const name =
+    document.getElementById('custName').value.trim();
+
+  const phone =
+    document.getElementById('custPhone').value.trim();
+
+  const address =
+    document.getElementById('custAddress').value.trim();
+
+  if(!name || !phone || !address){
+
+    alert(
+      'Please fill in your name, phone number, and delivery address so your rider can find you.'
+    );
+
+    return;
+
+  }
+
+  customer = {
+    name,
+    phone,
+    address
+  };
+
+  drawerStep = 'payment';
+
+  renderDrawerBody();
+
+}
+
+
+function backToCart(){
+
+  drawerStep = 'cart';
+
+  renderDrawerBody();
+
+}
+
+
+/* =========================================================
+   STEP 2 PAYMENT
+========================================================= */
+
+function renderPaymentStep(body){
+
+  body.innerHTML = `
+
+    <div class="field-label">
+      Choose Payment Method
+    </div>
+
+    <div class="payment-options">
+
+      ${PAYMENT_METHODS.map(pm => `
+
+        <button
+          class="pm-card ${
+            selectedPayment === pm.id
+              ? 'selected'
+              : ''
+          }"
+          onclick="selectPayment('${pm.id}')"
+          type="button">
+
+          <span
+            class="pm-icon"
+            style="background:${pm.color}">
+            ${pm.initial}
+          </span>
+
+          <span class="pm-name">
+            ${pm.name}
+          </span>
+
+          ${
+            selectedPayment === pm.id
+              ? '<span class="pm-check">✓</span>'
+              : ''
+          }
+
+        </button>
+
+      `).join('')}
+
+    </div>
+
+    ${renderPaymentDetail()}
+
+    <div
+      class="field-label"
+      style="margin-top:20px;">
+      Delivering To
+    </div>
+
+    <div class="deliver-to-box">
+
+      <b>${customer.name}</b>
+
+      <span>${customer.phone}</span>
+
+      <span>${customer.address}</span>
+
+    </div>
+
+  `;
+
+}
+
+
+function renderPaymentDetail(){
+
+  if(!selectedPayment){
+
+    return '';
+
+  }
+
+  if(selectedPayment === 'cod'){
+
+    return `
+
+      <div class="pm-detail cod-detail">
+
+        <div class="pm-detail-title">
+          Cash on Delivery
+        </div>
+
+        <p>
+          Pay the rider in cash when your order arrives.
+          Please prepare the exact total if possible.
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+  const pm =
+    PAYMENT_METHODS.find(
+      p => p.id === selectedPayment
+    );
+
+  return `
+
+    <div class="pm-detail wallet-detail">
+
+      <div class="pm-detail-title">
+        Pay with ${pm.name}
+      </div>
+
+      <div class="qr-box">
+
+        ${qrIcon}
+
+        <p>
+          Scan the QR in the ${pm.name} app,
+          or enter your account number below.
+        </p>
+
+        <input
+          type="tel"
+          class="pm-input"
+          placeholder="${pm.name} mobile number">
+
+      </div>
+
+      <p class="pm-note">
+        UI preview only — no real payment is processed.
+      </p>
+
+    </div>
+
+  `;
+
+}
+
+
+function selectPayment(id){
+
+  selectedPayment = id;
+
+  renderDrawerBody();
+
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+function renderSummary(){
+
+  const summary =
+    document.getElementById('drawerSummary');
+
+  if(!summary) return;
+
+  const entries =
+    Object.entries(cart);
+
+  if(entries.length === 0){
+
+    summary.style.display = 'none';
+
+    return;
+
+  }
+
+  summary.style.display = 'block';
+
+  const subtotal =
+    cartSubtotal();
+
+  const total =
+    subtotal + DELIVERY_FEE;
+
+  if(drawerStep === 'cart'){
+
+    summary.innerHTML = `
+
+      <div class="sum-row">
+
+        <span>Subtotal</span>
+
+        <span>
+          ${peso(subtotal)}
+        </span>
+
+      </div>
+
+      <div class="sum-row">
+
+        <span>Delivery Fee</span>
+
+        <span>
+          ${peso(DELIVERY_FEE)}
+        </span>
+
+      </div>
+
+      <div class="sum-row total">
+
+        <span>Total</span>
+
+        <span>
+          ${peso(total)}
+        </span>
+
+      </div>
+
+      <button
+        class="place-order"
+        onclick="continueToPayment()"
+        type="button">
+
+        Continue to Payment
+
+        <svg
+          width="13"
+          height="13"
+          viewBox="0 0 24 24"
+          fill="none">
+
+          <path
+            d="M5 12h14M13 6l6 6-6 6"
+            stroke="#FBF5E9"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        </svg>
+
+      </button>
+
+    `;
+
+  }else{
+
+    summary.innerHTML = `
+
+      <div class="sum-row total">
+
+        <span>Total Due</span>
+
+        <span>
+          ${peso(total)}
+        </span>
+
+      </div>
+
+      <button
+        class="place-order"
+        id="placeOrderBtn"
+        onclick="placeOrder()"
+        ${selectedPayment ? '' : 'disabled'}
+        type="button">
+
+        ${
+          selectedPayment === 'cod'
+            ? 'Place Order — Pay with Cash'
+            : selectedPayment
+              ? 'Confirm & Place Order'
+              : 'Select a payment method'
+        }
+
+      </button>
+
+      <button
+        class="back-link"
+        onclick="backToCart()"
+        type="button">
+        ← Back to cart
+      </button>
+
+    `;
+
+  }
+
+}
+
+
+/* =========================================================
+   DRAWER
+========================================================= */
+
+/*
+   IMPORTANT FIX:
+   The login check is BEFORE opening the drawer.
+*/
+
+function openDrawer(){
+
+  if(!isUserLoggedIn()){
+
+    openLoginPrompt();
+
+    return;
+
+  }
+
+  drawerStep = 'cart';
+
+  document
+    .getElementById('drawer')
+    .classList.add('show');
+
+  document
+    .getElementById('overlay')
+    .classList.add('show');
+
+  renderDrawerBody();
+
+}
+
+
+function closeDrawer(){
+
+  const drawer =
+    document.getElementById('drawer');
+
+  const overlay =
+    document.getElementById('overlay');
+
+  if(drawer){
+
+    drawer.classList.remove('show');
+
+  }
+
+  if(overlay){
+
+    overlay.classList.remove('show');
+
+  }
+
+}
+
+
+/* =========================================================
+   PLACE ORDER
+========================================================= */
+
+function placeOrder(){
+
+  if(!isUserLoggedIn()){
+
+    openLoginPrompt();
+
+    return;
+
+  }
+
+  if(!selectedPayment){
+
+    alert(
+      'Please choose a payment method.'
+    );
+
+    return;
+
+  }
+
+  if(selectedPayment !== 'cod'){
+
+    const walletInput =
+      document.querySelector('.pm-input');
+
+    if(
+      walletInput &&
+      !walletInput.value.trim()
+    ){
+
+      alert(
+        'Please enter your mobile number to continue.'
+      );
+
+      return;
+
+    }
+
+  }
+
+  const pm =
+    PAYMENT_METHODS.find(
+      p => p.id === selectedPayment
+    );
+
+  const subtotal =
+    cartSubtotal();
+
+  const orderNum =
+    'BC-' +
+    Math.floor(
+      1000 + Math.random() * 9000
+    );
+
+  document.getElementById(
+    'orderNo'
+  ).textContent =
+    'ORDER #' + orderNum;
+
+  document.getElementById(
+    'confirmLines'
+  ).innerHTML =
+
+    Object.entries(cart)
+      .map(([id,qty]) => {
+
+        const item =
+          MENU.find(m => m.id === id);
+
+        return `
+
+          <div class="confirm-row">
+
+            <span>
+              ${qty}x ${item.name}
+            </span>
+
+            <span>
+              ${peso(item.price * qty)}
+            </span>
+
+          </div>
+
+        `;
+
+      })
+      .join('');
+
+  document.getElementById(
+    'confirmPayment'
+  ).textContent =
+    pm.name;
+
+  document.getElementById(
+    'confirmDelivery'
+  ).textContent =
+    peso(DELIVERY_FEE);
+
+  document.getElementById(
+    'confirmTotal'
+  ).textContent =
+    peso(subtotal + DELIVERY_FEE);
+
+  document.getElementById(
+    'confirmNote'
+  ).textContent =
+
+    selectedPayment === 'cod'
+
+      ? 'Please prepare exact cash if possible. Your rider will call before arrival — estimated 30–45 minutes.'
+
+      : `Keep your ${pm.name} confirmation ready to show the rider — estimated 30–45 minutes.`;
+
+  closeDrawer();
+
+  document
+    .getElementById('modalOverlay')
+    .classList.add('show');
+
+  cart = {};
+
+  customer = {
+    name:'',
+    phone:'',
+    address:''
+  };
+
+  selectedPayment = null;
+
+  drawerStep = 'cart';
+
+  saveCart();
+
+  syncAll();
+
+}
+
+
+function closeModal(){
+
+  document
+    .getElementById('modalOverlay')
+    .classList.remove('show');
+
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+function initTabs(){
+
+  const tabs =
+    document.getElementById('tabs');
+
+  if(!tabs) return;
+
+  tabs.addEventListener(
+    'click',
+    (e) => {
+
+      const btn =
+        e.target.closest('.tab');
+
+      if(!btn) return;
+
+      document
+        .querySelectorAll('.tab')
+        .forEach(
+          t => t.classList.remove('active')
+        );
+
+      btn.classList.add('active');
+
+      activeCat =
+        btn.dataset.cat;
+
+      renderMenu();
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   ACCOUNT DROPDOWN (nav icon, name, menu)
+========================================================= */
+
+function updateUserDisplay(){
+
+  const user = getLoggedInUser();
+
+  const account = document.getElementById('userAccount');
+  const avatar = document.getElementById('userAvatar');
+  const nameDisplay = document.getElementById('userNameDisplay');
+
+  if(!account || !nameDisplay) return;
+
+  // The account icon always stays visible in the nav.
+  // Only the name (and avatar initial) clear when logged out.
+  account.style.display = 'block';
+
+  if(!user){
+
+    nameDisplay.textContent = '';
+
+    if(avatar){
+      avatar.textContent = '';
+    }
+
+    return;
+
+  }
+
+  const displayName =
+    user.name || user.full_name || user.fullName || 'Customer';
+
+  nameDisplay.textContent = displayName;
+
+  if(avatar){
+    avatar.textContent = displayName.trim().charAt(0).toUpperCase();
+  }
+
+}
+
+
+function toggleUserMenu(event){
+
+  if(event){
+    event.stopPropagation();
+  }
+
+  const dropdown = document.getElementById('userDropdown');
+
+  if(dropdown){
+    dropdown.classList.toggle('show');
+  }
+
+}
+
+
+document.addEventListener('click', function(event){
+
+  const account = document.getElementById('userAccount');
+  const dropdown = document.getElementById('userDropdown');
+
+  if(!account || !dropdown) return;
+
+  if(!account.contains(event.target)){
+    dropdown.classList.remove('show');
+  }
+
+});
+
+
+function goToAccount(){
+  window.location.href = 'account.html';
+}
+
+
+function goToProfile(){
+  window.location.href = 'profile.html';
+}
+
+
+function goToSettings(){
+  window.location.href = 'settings.html';
+}
+
+
+function logoutUser(){
+
+  localStorage.removeItem('brewtney_user');
+  localStorage.removeItem('brewtney_user_name');
+
+  window.location.href = 'index.html';
+
+}
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+  'keydown',
+  function(e){
+
+    if(e.key !== 'Escape'){
+      return;
+    }
+
+    const loginPrompt =
+      document.getElementById('loginPrompt');
+
+    if(
+      loginPrompt &&
+      loginPrompt.classList.contains('show')
+    ){
+
+      closeLoginPrompt();
+
+      return;
+
+    }
+
+    const modal =
+      document.getElementById('modalOverlay');
+
+    if(
+      modal &&
+      modal.classList.contains('show')
+    ){
+
+      closeModal();
+
+      return;
+
+    }
+
+    closeDrawer();
+
+  }
+);
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+document.addEventListener(
+  'DOMContentLoaded',
+  () => {
+
+    loadCart();
+
+    initTabs();
+
+    renderMenu();
+
+    syncAll();
+
+    updateUserDisplay();
+
+  }
+);
+
+</script>
+
+</body>
+</html>
